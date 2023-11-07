@@ -1,3 +1,10 @@
+<?php
+function comparar($a, $b)
+{
+    return strcmp($a['ra'], $b['ra']);
+}
+?>
+
 <body>
     <h1 align="center">Alunos Cadastrados</h1>
     <?php
@@ -6,6 +13,7 @@
         $registros = unserialize($dados);
 
         if (!empty($registros)) {
+            usort($registros, 'comparar');
     ?>
             <table>
                 <tr>
